@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e3c72, #2a5298, #2193b0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #fff;
+}
+
+/* --- LOGIN CONTAINER (.box) --- */
+.box {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px 30px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    animation: fade 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Header Text Trick (Styling the loose text before inputs) */
+.box::before {
+    content: "Welcome Back";
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+/* Input Fields styling */
+.box input[type="text"],
+.box input[type="password"] {
+    width: 100%;
+    height: 52px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    outline: none;
+    border-radius: 12px;
+    padding: 0 16px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1e293b;
+    transition: all 0.3s ease;
+}
+
+.box input:focus {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25);
+}
+
+/* Beautiful Checkbox Styling */
+.box label[for="a"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 4px;
+    user-select: none;
+    order: 3; /* Positions label elegantly next to input */
+}
+
+.box input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #0d6efd;
+    cursor: pointer;
+    order: 2;
+}
+
+/* Action Buttons */
+.box button {
+    height: 52px;
+    border: none;
+    border-radius: 12px;
+    background: #0d6efd;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    order: 4;
+}
+
+.box button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
+}
+
+.box button:active {
+    transform: translateY(0);
+}
+
+
+/* --- DATA TABLE SYSTEM --- */
+/* Outer injected table wrapper */
+body > table {
+    width: 100%;
+    max-width: 650px;
+    background: transparent;
+    box-shadow: none;
+    animation: fade 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Injected Welcome Title */
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Nested structural Table layout */
+table table {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+table tr {
+    transition: background 0.2s ease;
+}
+
+table tr:not(:last-child):hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+table td {
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Key Column styling */
+table td:first-child {
+    width: 30%;
+    font-weight: 600;
+    color: #74b9ff;
+    background: rgba(255, 255, 255, 0.03);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Avatar layout */
+img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Actions Row styling */
+table tr:last-child td {
+    border-bottom: none;
+    padding: 20px 24px;
+}
+
+.edit, .delete {
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.edit {
+    color: #74b9ff;
+    background: rgba(13, 110, 253, 0.15);
+    border: 1px solid rgba(13, 110, 253, 0.3);
+}
+
+.edit:hover {
+    background: #0d6efd;
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+}
+
+.delete {
+    color: #ff7675;
+    background: rgba(220, 53, 69, 0.15);
+    border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+.delete:hover {
+    background: #dc3545;
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+}
+
+
+/* --- POPUP EDIT DIALOG (.pop) --- */
+.pop { 
+    position: absolute;
+    display: none;
+    width: 100%;
+    max-width: 430px;
+    padding: 35px 30px;
+    border-radius: 24px;
+    background: rgba(30, 41, 59, 0.85); /* Slightly darker backing for clarity */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+}
+
+.pop::before {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+}
+
+.pop input {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    outline: none;
+    border-radius: 12px;
+    padding: 0 16px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1e293b;
+    transition: all 0.25s ease;
+}
+
+.pop input:focus {
+    transform: none;
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+}
+
+.pop button {
+    height: 52px;
+    margin-top: 8px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+}
+
+
+/* --- ANIMATIONS --- */
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popup {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -46%) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
